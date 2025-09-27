@@ -2,41 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>TaxWise - Smarter Finance</title>
+  <title>TaxWise - AI Assistant</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>TaxWise</h1>
+    <h1>💡 TaxWise</h1>
     <nav>
-      <a href="#">Home</a>
-      <a href="#">Upload</a>
-      <a href="#">Insights</a>
-      <a href="#">CIBIL</a>
-      <a href="#">Tax Calculator</a>
+      <a onclick="showSection('home')">Home</a>
+      <a onclick="showSection('upload')">Upload</a>
+      <a onclick="showSection('insights')">Insights</a>
+      <a onclick="showSection('askAI')">Ask AI</a>
     </nav>
   </header>
 
-  <section>
-    <h2>Smarter Tax Planning & Financial Insights</h2>
-    <p>Upload your bank statement or CSV file to get instant insights.</p>
-    <input type="file" accept=".csv,.xls,.xlsx">
-  </section>
+  <main>
+    <!-- Sections -->
+    <section id="home" class="active">
+      <h2>Welcome to TaxWise </h2>
+      <p>Your smarter way to plan taxes & track finances</p>
+    </section>
 
-  <section>
-    <h2>Advanced Features</h2>
-    <div class="features">
-      <div class="card">📊 Transaction Categorization</div>
-      <div class="card">💰 Tax Estimator</div>
-      <div class="card">📈 CIBIL Health Insights</div>
-      <div class="card">📉 Spending Dashboard</div>
-      <div class="card">📑 Downloadable Reports</div>
-    </div>
-  </section>
+    <section id="upload">
+      <h2> Upload Your CSV</h2>
+      <input type="file" accept=".csv,.xls,.xlsx">
+    </section>
+
+    <section id="insights">
+      <h2> Insights Dashboard</h2>
+      <p>Charts and financial reports will appear here</p>
+    </section>
+
+    <section id="askAI">
+      <h2> Ask AI About Taxes</h2>
+      <input type="text" id="taxQuestion" placeholder="Type your tax question...">
+      <button id="askBtn">Ask</button>
+      <div id="taxReply"></div>
+    </section>
+  </main>
 
   <footer>
-    <p>&copy; 2025 TaxWise | Smarter Finance</p>
+    <p>© 2025 TaxWise | Built for smarter tax planning</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
+
 
