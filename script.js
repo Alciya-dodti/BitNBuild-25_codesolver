@@ -1,26 +1,29 @@
-document.getElementById('askBtn').addEventListener('click', function() {
-    const question = document.getElementById('taxQuestion').value.trim().toLowerCase();
-    const replyDiv = document.getElementById('taxReply');
-
+function showSection(id) {
+  document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+document.addEventListener("DOMContentLoaded", () => {
+  const askBtn = document.getElementById('askBtn');
+  const questionInput = document.getElementById('taxQuestion');
+  const replyDiv = document.getElementById('taxReply');
+  askBtn.addEventListener('click', function() {
+    const question = questionInput.value.trim().toLowerCase();
     if (!question) {
-        replyDiv.innerHTML = "Please type a question before asking!";
-        return;
+      replyDiv.innerHTML = "⚠️ Please type a question before asking!";
+      return;
     }
-
-    let reply = "Sorry, I’m not sure about that. Please ask something related to taxes.";
-
-    // Context-based responses
+    let reply = "❓ Sorry, I’m not sure about that. Please ask something related to taxes.";
     if (question.includes("deduction") || question.includes("80c") || question.includes("investment")) {
-        reply = "You may be eligible for deductions under Section 80C for investments like PPF, ELSS, and life insurance. 💰";
+        reply = "💰 Eligible for deductions under Section 80C: PPF, ELSS, Life Insurance.";
     } else if (question.includes("deadline") || question.includes("due date")) {
-        reply = "Make sure to file your taxes before the due date to avoid penalties. 🗓️";
+        reply = "🗓️ File your taxes before the deadline to avoid penalties.";
     } else if (question.includes("form 16") || question.includes("salary slip")) {
-        reply = "Form 16 is issued by your employer and is essential for filing your income tax return. 📄";
+        reply = "📄 Form 16 is provided by your employer and is required for ITR.";
     } else if (question.includes("tax slab") || question.includes("rate")) {
-        reply = "Check the current financial year’s tax slabs to calculate your tax liability accurately. 📊";
+        reply = "📊 Refer to current year’s tax slabs to know your liability.";
     } else if (question.includes("refund")) {
-        reply = "If you’ve paid excess tax, you can claim a refund by filing your ITR. 💵";
+        reply = "💵 If you’ve overpaid, file your ITR to claim a refund.";
     }
-
     replyDiv.innerHTML = `<strong>AI:</strong> ${reply}`;
+  });
 });
