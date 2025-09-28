@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>TaxWise - AI Assistant</title>
+  <title>TaxWise - Smarter Finance</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <header>
@@ -17,25 +19,40 @@
   </header>
 
   <main>
-    <!-- Sections -->
     <section id="home" class="active">
-      <h2>Welcome to TaxWise </h2>
-      <p>Your smarter way to plan taxes & track finances</p>
+      <h2>Welcome to TaxWise</h2>
+      <p>Your smarter way to plan taxes & track finances 🚀</p>
     </section>
 
     <section id="upload">
-      <h2> Upload Your CSV</h2>
-      <input type="file" accept=".csv,.xls,.xlsx">
+      <h2>Upload Your CSV</h2>
+      <input type="file" id="csvFile" accept=".csv">
+      <button id="uploadBtn">Upload</button>
     </section>
 
     <section id="insights">
-      <h2> Insights Dashboard</h2>
-      <p>Charts and financial reports will appear here</p>
+      <h2>Insights Dashboard</h2>
+
+      <div id="cibilScoreCard" class="card">
+        <h3>Your CIBIL Score</h3>
+        <canvas id="cibilChart" width="200" height="200"></canvas>
+        <p id="cibilScoreValue">--</p>
+        <small id="cibilStatus"></small>
+      </div>
+
+      <div id="summary"></div>
+      <div id="extraInsights"></div>
+      <canvas id="pieChart" width="500" height="300"></canvas>
+      <canvas id="barChart" width="600" height="300"></canvas>
     </section>
 
     <section id="askAI">
-      <h2> Ask AI About Taxes</h2>
-      <input type="text" id="taxQuestion" placeholder="Type your tax question...">
+      <h2>Ask AI About Taxes</h2>
+      <select id="taxDropdown">
+        <option value="">-- Select a Common Tax Question --</option>
+      </select>
+      <br>
+      <input type="text" id="taxQuestion" placeholder="Or type your own question...">
       <button id="askBtn">Ask</button>
       <div id="taxReply"></div>
     </section>
@@ -48,5 +65,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
-
